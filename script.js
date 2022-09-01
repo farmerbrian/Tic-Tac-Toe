@@ -20,7 +20,7 @@ function playerToggle() {
 function isGameOver() {
 	if (!gameBoardArray.includes('')) {
 		gameOver = true;
-		alert('Game over!!');
+		alert('Game over!! TIE Game!!');
 	} else if (
 		gameBoardArray[0] == gameBoardArray[1] &&
 		gameBoardArray[0] == gameBoardArray[2] &&
