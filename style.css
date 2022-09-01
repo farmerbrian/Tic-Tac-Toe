@@ -5,18 +5,35 @@ body {
  
 }
 
+.container {
+  width: 500px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+}
+
 .gameboard-container{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  justify-items: center;
-  width: 400px;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gameSpace {
+  border: 2px solid darkred;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .row1 {
   grid-row-start: 1;
   grid-row-end: 2;
-  justify-self: center
 }
 
 .row2 {

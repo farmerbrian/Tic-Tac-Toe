@@ -1,5 +1,6 @@
-const gameBoardArray = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x'];
+const gameBoardArray = ['', '', '', '', '', '', '', '', ''];
 const gameBoardElements = document.querySelectorAll('.gameSpace');
+let player1Turn = true;
 
 function updateGameBoard(array) {
 	for (let i = 0; i < array.length; i++) {
@@ -7,8 +8,22 @@ function updateGameBoard(array) {
 	}
 }
 
+function playerToggle() {
+	if (player1Turn == true) {
+		player1Turn = false;
+	} else {
+		player1Turn = true;
+	}
+}
+
 function gameSpace(e) {
-	alert(`clicked`);
+	if (player1Turn == true) {
+		gameBoardArray[this.id] = 'X';
+	} else {
+		gameBoardArray[this.id] = 'O';
+	}
+	playerToggle();
+	updateGameBoard(gameBoardArray);
 }
 
 const btn0 = document.getElementById('0');
@@ -31,4 +46,4 @@ btn6.addEventListener('click', gameSpace);
 btn7.addEventListener('click', gameSpace);
 btn8.addEventListener('click', gameSpace);
 
-let test = updateGameBoard(gameBoardArray);
+// let test = updateGameBoard(gameBoardArray);
