@@ -1,6 +1,7 @@
 const gameBoardArray = ['', '', '', '', '', '', '', '', ''];
 const gameBoardElements = document.querySelectorAll('.gameSpace');
 let player1Turn = true;
+let gameOver = false;
 
 function updateGameBoard(array) {
 	for (let i = 0; i < array.length; i++) {
@@ -16,12 +17,82 @@ function playerToggle() {
 	}
 }
 
-function gameSpace(e) {
-	if (player1Turn == true) {
-		gameBoardArray[this.id] = 'X';
+function isGameOver() {
+	if (!gameBoardArray.includes('')) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[0] == gameBoardArray[1] &&
+		gameBoardArray[0] == gameBoardArray[2] &&
+		!gameBoardArray[0] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[3] == gameBoardArray[4] &&
+		gameBoardArray[3] == gameBoardArray[5] &&
+		!gameBoardArray[3] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[6] == gameBoardArray[7] &&
+		gameBoardArray[6] == gameBoardArray[8] &&
+		!gameBoardArray[6] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[0] == gameBoardArray[3] &&
+		gameBoardArray[0] == gameBoardArray[6] &&
+		!gameBoardArray[0] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[1] == gameBoardArray[4] &&
+		gameBoardArray[1] == gameBoardArray[7] &&
+		!gameBoardArray[1] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[2] == gameBoardArray[5] &&
+		gameBoardArray[2] == gameBoardArray[8] &&
+		!gameBoardArray[2] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[0] == gameBoardArray[4] &&
+		gameBoardArray[0] == gameBoardArray[8] &&
+		!gameBoardArray[0] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
+	} else if (
+		gameBoardArray[6] == gameBoardArray[4] &&
+		gameBoardArray[6] == gameBoardArray[2] &&
+		!gameBoardArray[6] == ''
+	) {
+		gameOver = true;
+		alert('Game over!!');
 	} else {
-		gameBoardArray[this.id] = 'O';
+		gameOver = false;
 	}
+}
+
+function gameSpace(e) {
+	if (gameOver == false) {
+		if (player1Turn == true) {
+			gameBoardArray[this.id] = 'X';
+		} else {
+			gameBoardArray[this.id] = 'O';
+		}
+		isGameOver();
+	} else {
+	}
+
 	playerToggle();
 	updateGameBoard(gameBoardArray);
 }
