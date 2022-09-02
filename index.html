@@ -10,8 +10,23 @@
 </head>
 <body>
 <div class="container">
-  <h1>Welcome to Tic-Tac-Toe!!!</h1>
+  <h1 id="welcome">Welcome to Tic-Tac-Toe!!!</h1>
+  <div class="sidebar-left">
+    <form action="">
+      <div>
+      <label for="p1"> Player 1 Name:</label>
+      <input type="text" id="p1" name="p1">
+     </div>
+     <div>
+      <label for="p2"> Player 2 Name:</label>
+      <input type="text" id="p2" name="p2">
+     </div>
+      <button>Submit</button>
+    </form>
+    
 
+
+  </div>
   <div class="gameboard-container">
       <div id="0" class="row1 col1 gameSpace"><p> </p></div>
       <div id="1" class="row1 col2 gameSpace"><p> </p></div>
@@ -25,8 +40,13 @@
       <div id="7" class="row3 col2 gameSpace"><p> </p></div>
       <div id="8" class="row3 col3 gameSpace"><p> </p></div>
   </div>
-<button onclick="reset()">Reset</button>
-  <h2></h2>
+  <div class="sidebar-right">
+    <p>Welcome Player 1</p>
+    <p>Welcome Player 2</p>
+    <button onclick="reset()">Reset</button>
+    <h2></h2>
+  </div>
+
 </div>
 </body>
 <script src="script.js" defer></script>

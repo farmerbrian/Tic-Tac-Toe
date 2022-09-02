@@ -3,6 +3,18 @@ const gameBoardElements = document.querySelectorAll('.gameSpace');
 let player1Turn = true;
 let gameOver = false;
 
+let player1;
+let player2;
+
+const form = document.querySelector('form');
+form.addEventListener('submit', function (e) {
+	e.preventDefault();
+	player1 = form.p1.value;
+	player2 = form.p2.value;
+	console.log(player1);
+	console.log(player2);
+});
+
 function reset() {
 	gameBoardArray = ['', '', '', '', '', '', '', '', ''];
 	updateGameBoard(gameBoardArray);
