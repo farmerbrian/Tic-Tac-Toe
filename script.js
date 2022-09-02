@@ -1,7 +1,14 @@
-const gameBoardArray = ['', '', '', '', '', '', '', '', ''];
+let gameBoardArray = ['', '', '', '', '', '', '', '', ''];
 const gameBoardElements = document.querySelectorAll('.gameSpace');
 let player1Turn = true;
 let gameOver = false;
+
+function reset() {
+	gameBoardArray = ['', '', '', '', '', '', '', '', ''];
+	updateGameBoard(gameBoardArray);
+	player1Turn = true;
+	gameOver = false;
+}
 
 function updateGameBoard(array) {
 	for (let i = 0; i < array.length; i++) {
@@ -17,66 +24,72 @@ function playerToggle() {
 	}
 }
 
+function gameOverMsg(text) {
+	let h2 = document.querySelector('h2');
+	h2.innerHTML = text;
+}
+
 function isGameOver() {
 	if (!gameBoardArray.includes('')) {
 		gameOver = true;
-		alert('Game over!! TIE Game!!');
+		// alert('Game over!! TIE Game!!');
+		gameOverMsg('Game Over!!! Tie Game!!!');
 	} else if (
 		gameBoardArray[0] == gameBoardArray[1] &&
 		gameBoardArray[0] == gameBoardArray[2] &&
 		!gameBoardArray[0] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else if (
 		gameBoardArray[3] == gameBoardArray[4] &&
 		gameBoardArray[3] == gameBoardArray[5] &&
 		!gameBoardArray[3] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else if (
 		gameBoardArray[6] == gameBoardArray[7] &&
 		gameBoardArray[6] == gameBoardArray[8] &&
 		!gameBoardArray[6] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else if (
 		gameBoardArray[0] == gameBoardArray[3] &&
 		gameBoardArray[0] == gameBoardArray[6] &&
 		!gameBoardArray[0] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else if (
 		gameBoardArray[1] == gameBoardArray[4] &&
 		gameBoardArray[1] == gameBoardArray[7] &&
 		!gameBoardArray[1] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else if (
 		gameBoardArray[2] == gameBoardArray[5] &&
 		gameBoardArray[2] == gameBoardArray[8] &&
 		!gameBoardArray[2] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else if (
 		gameBoardArray[0] == gameBoardArray[4] &&
 		gameBoardArray[0] == gameBoardArray[8] &&
 		!gameBoardArray[0] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else if (
 		gameBoardArray[6] == gameBoardArray[4] &&
 		gameBoardArray[6] == gameBoardArray[2] &&
 		!gameBoardArray[6] == ''
 	) {
 		gameOver = true;
-		alert('Game over!!');
+		gameOverMsg('Game Over!!! Somebody Won!!!');
 	} else {
 		gameOver = false;
 	}
@@ -97,15 +110,26 @@ function gameSpace(e) {
 	updateGameBoard(gameBoardArray);
 }
 
-const btn0 = document.getElementById('0');
-const btn1 = document.getElementById('1');
-const btn2 = document.getElementById('2');
-const btn3 = document.getElementById('3');
-const btn4 = document.getElementById('4');
-const btn5 = document.getElementById('5');
-const btn6 = document.getElementById('6');
-const btn7 = document.getElementById('7');
-const btn8 = document.getElementById('8');
+function getElement(id) {
+	return document.getElementById(id);
+}
+
+const btn0 = getElement('0');
+const btn1 = getElement('1');
+const btn2 = getElement('2');
+const btn3 = getElement('3');
+const btn4 = getElement('4');
+const btn5 = getElement('5');
+const btn6 = getElement('6');
+const btn7 = getElement('7');
+const btn8 = getElement('8');
+
+// for (let i = 0; i < 9; i++) {
+// 	let btn = 'btn';
+// 	btn = `${btn}` + `${i}`;
+// 	console.log(btn);
+// 	btn.addEventListener('click', gameSpace);
+// }
 
 btn0.addEventListener('click', gameSpace);
 btn1.addEventListener('click', gameSpace);
@@ -117,4 +141,4 @@ btn6.addEventListener('click', gameSpace);
 btn7.addEventListener('click', gameSpace);
 btn8.addEventListener('click', gameSpace);
 
-// let test = updateGameBoard(gameBoardArray);
+// const btnFactory = (id) = > {
