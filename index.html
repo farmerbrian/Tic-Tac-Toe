@@ -11,20 +11,21 @@
 <body>
 <div class="container">
   <h1 id="welcome">Welcome to Tic-Tac-Toe!!!</h1>
+  
   <div class="sidebar-left">
     <form action="">
       <div>
-      <label for="p1"> Player 1 Name:</label>
+      <label for="p1"> Player 1 (X) Name:</label>
       <input type="text" id="p1" name="p1">
      </div>
      <div>
-      <label for="p2"> Player 2 Name:</label>
+      <label for="p2"> Player 2 (O) Name:</label>
       <input type="text" id="p2" name="p2">
      </div>
       <button>Submit</button>
     </form>
     
-
+    <h2 id="vs"></h2>
 
   </div>
   <div class="gameboard-container">
@@ -41,10 +42,10 @@
       <div id="8" class="row3 col3 gameSpace"><p> </p></div>
   </div>
   <div class="sidebar-right">
-    <p>Welcome Player 1</p>
-    <p>Welcome Player 2</p>
+
+
     <button onclick="reset()">Reset</button>
-    <h2></h2>
+    <h2 id="winner"></h2>
   </div>
 
 </div>

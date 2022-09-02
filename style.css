@@ -16,14 +16,14 @@ body {
   text-align: center;
 }
 
-h1 {
+#welcome {
   grid-column: 2 / 3;
+  grid-row: 1 /2;
 }
 
 .sidebar-left {
   grid-column: 1 /2;
-  
-  
+  grid-row: 2/3;
 }
 
 .sidebar-right {

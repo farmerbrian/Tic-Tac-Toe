@@ -1,16 +1,18 @@
 let gameBoardArray = ['', '', '', '', '', '', '', '', ''];
 const gameBoardElements = document.querySelectorAll('.gameSpace');
+let h2 = document.querySelector('#winner');
+let vs = document.querySelector('#vs');
 let player1Turn = true;
 let gameOver = false;
-
 let player1;
 let player2;
-
 const form = document.querySelector('form');
+
 form.addEventListener('submit', function (e) {
 	e.preventDefault();
 	player1 = form.p1.value;
 	player2 = form.p2.value;
+	vs.innerHTML = `${player1} VS ${player2}`;
 	console.log(player1);
 	console.log(player2);
 });
@@ -20,6 +22,7 @@ function reset() {
 	updateGameBoard(gameBoardArray);
 	player1Turn = true;
 	gameOver = false;
+	h2.innerHTML = '';
 }
 
 function updateGameBoard(array) {
@@ -37,71 +40,77 @@ function playerToggle() {
 }
 
 function gameOverMsg(text) {
-	let h2 = document.querySelector('h2');
-	h2.innerHTML = text;
+	if (text == 'TIE') {
+		h2.innerHTML = 'Game Over !!! Tie Game!!!';
+	} else {
+		if (player1Turn == true) {
+			h2.innerHTML = `Congratulations, ${player1} is the winner!!!`;
+		} else {
+			h2.innerHTML = `Congratulations, ${player2} is the winner!!!`;
+		}
+	}
 }
 
 function isGameOver() {
 	if (!gameBoardArray.includes('')) {
 		gameOver = true;
-		// alert('Game over!! TIE Game!!');
-		gameOverMsg('Game Over!!! Tie Game!!!');
+		gameOverMsg('TIE');
 	} else if (
 		gameBoardArray[0] == gameBoardArray[1] &&
 		gameBoardArray[0] == gameBoardArray[2] &&
 		!gameBoardArray[0] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else if (
 		gameBoardArray[3] == gameBoardArray[4] &&
 		gameBoardArray[3] == gameBoardArray[5] &&
 		!gameBoardArray[3] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else if (
 		gameBoardArray[6] == gameBoardArray[7] &&
 		gameBoardArray[6] == gameBoardArray[8] &&
 		!gameBoardArray[6] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else if (
 		gameBoardArray[0] == gameBoardArray[3] &&
 		gameBoardArray[0] == gameBoardArray[6] &&
 		!gameBoardArray[0] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else if (
 		gameBoardArray[1] == gameBoardArray[4] &&
 		gameBoardArray[1] == gameBoardArray[7] &&
 		!gameBoardArray[1] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else if (
 		gameBoardArray[2] == gameBoardArray[5] &&
 		gameBoardArray[2] == gameBoardArray[8] &&
 		!gameBoardArray[2] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else if (
 		gameBoardArray[0] == gameBoardArray[4] &&
 		gameBoardArray[0] == gameBoardArray[8] &&
 		!gameBoardArray[0] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else if (
 		gameBoardArray[6] == gameBoardArray[4] &&
 		gameBoardArray[6] == gameBoardArray[2] &&
 		!gameBoardArray[6] == ''
 	) {
 		gameOver = true;
-		gameOverMsg('Game Over!!! Somebody Won!!!');
+		gameOverMsg('WON');
 	} else {
 		gameOver = false;
 	}
